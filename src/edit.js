@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { useState, useEffect } from '@wordpress/element';
 import { PanelBody, RangeControl } from '@wordpress/components';
+import apiFetch from '@wordpress/api-fetch';
 import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -13,17 +14,8 @@ export default function Edit({ attributes, setAttributes }) {
     const { numberOfItems } = attributes;
 
     useEffect(() => {
-        const restUrl = `${wpApiSettings.root}buddypress/v1/activity`;
-
-        fetch(restUrl)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then((data) => {
-				console.log(data);
+        apiFetch({ path: 'buddypress/v1/activity' })            
+            .then((data) => {				
                 setActivities(data);
             })
             .catch((error) => {
@@ -87,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <li>{__('No activities found.', 'todo-list')}</li>
                         ) : (
                             activities.slice(0, numberOfItems).map((activity) => {
-                                const content = activity.content ? activity.content.rendered : 'No content';
+                                const content = activity.content ? stripHTML( activity.content.rendered ) : 'No content';
                                 const avatarUrl = activity.user_avatar && activity.user_avatar.thumb;
                                 const activityTime = timeAgo(activity.date);
                                 const activityTitle = stripHTML(activity.title);
@@ -108,7 +100,7 @@ export default function Edit({ attributes, setAttributes }) {
                                             </div>
                                         </div>
                                         <div style={{ marginTop: '10px', color: 'black' }}>
-                                            <p dangerouslySetInnerHTML={{ __html: content }}></p>
+                                            <p>{content}</p>
                                         </div>
                                     </li>
                                 );
