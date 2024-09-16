@@ -1,3 +1,4 @@
+// import packages
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { useState, useEffect } from '@wordpress/element';
@@ -24,6 +25,7 @@ export default function Edit({ attributes, setAttributes }) {
             });
     }, []);
 
+    //exclude html
     const stripHTML = (html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
         return doc.body.textContent || "";

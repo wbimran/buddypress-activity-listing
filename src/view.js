@@ -17,7 +17,6 @@
  * JavaScript running in the front-end, then you should delete this file and remove
  * the `viewScript` property from `block.json`.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
 /* eslint-disable no-console */
