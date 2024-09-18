@@ -25,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+// import packages
 
 
 
@@ -54,6 +55,8 @@ function Edit({
       setError(error.message);
     });
   }, []);
+
+  //exclude html
   const stripHTML = html => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
@@ -85,10 +88,10 @@ function Edit({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Activity Settings', 'todo-list'),
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Activity Settings', 'buddypress-activity-lisiting'),
         initialOpen: true,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Number of Activities to Display', 'todo-list'),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Number of Activities to Display', 'buddypress-activity-lisiting'),
           value: numberOfItems,
           onChange: newVal => setAttributes({
             numberOfItems: newVal
@@ -106,12 +109,12 @@ function Edit({
         style: {
           color: 'black'
         },
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('BuddyPress Activity Listing', 'todo-list')
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('BuddyPress Activity Listing', 'buddypress-activity-lisiting')
       }), error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-        children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Error loading activities:', 'todo-list'), " ", error]
+        children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Error loading activities:', 'buddypress-activity-lisiting'), " ", error]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
         children: activities.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('No activities found.', 'todo-list')
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('No activities found.', 'buddypress-activity-lisiting')
         }) : activities.slice(0, numberOfItems).map(activity => {
           const content = activity.content ? stripHTML(activity.content.rendered) : 'No content';
           const avatarUrl = activity.user_avatar && activity.user_avatar.thumb;
@@ -178,7 +181,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 
 
@@ -187,7 +189,6 @@ __webpack_require__.r(__webpack_exports__);
  * All files containing `style` keyword are bundled together. The code used
  * gets applied both to the front of your site and to the editor.
  *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 
 
@@ -201,7 +202,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Every block starts by registering a new block type definition.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
   /**
@@ -234,7 +234,6 @@ __webpack_require__.r(__webpack_exports__);
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 
 
@@ -243,7 +242,6 @@ __webpack_require__.r(__webpack_exports__);
  * be combined into the final markup, which is then serialized by the block
  * editor into `post_content`.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
  *
  * @return {Element} Element to render.
  */
