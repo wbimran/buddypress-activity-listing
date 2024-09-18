@@ -72,7 +72,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <div {...blockProps} style={{ backgroundColor: 'transparent' }}>
-                <h2 style={{ color: 'black' }}>{__('BuddyPress Activity Listing', 'buddypress-activity-lisiting')}</h2>
+                <h2 className="wb-heading">{__('BuddyPress Activity Listing', 'buddypress-activity-lisiting')}</h2>
                 {error ? (
                     <p>{__('Error loading activities:', 'buddypress-activity-lisiting')} {error}</p>
                 ) : (
@@ -87,21 +87,20 @@ export default function Edit({ attributes, setAttributes }) {
                                 const activityTitle = stripHTML(activity.title);
 
                                 return (
-                                    <li key={activity.id} style={{ marginBottom: '20px', listStyle: 'none' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <li className="wb-activity-item" key={activity.id}>
+                                        <div className="wb-activity-meta">
                                             {avatarUrl && (
-                                                <img
+                                                <img className="wb-activity-user-avatar"
                                                     src={avatarUrl}
-                                                    style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }}
                                                 />
                                             )}
                                             <div>
-                                                <span style={{ fontSize: '0.85em', color: 'black' }}>
+                                                <span className="wb-activity-timedate">
                                                     {activityTitle}&nbsp;&nbsp;{activityTime}
                                                 </span>
                                             </div>
                                         </div>
-                                        <div style={{ marginTop: '10px', color: 'black' }}>
+                                        <div className="wb-activity-content">
                                             <p>{content}</p>
                                         </div>
                                     </li>

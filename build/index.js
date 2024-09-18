@@ -106,9 +106,7 @@ function Edit({
         backgroundColor: 'transparent'
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
-        style: {
-          color: 'black'
-        },
+        className: "wb-heading",
         children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('BuddyPress Activity Listing', 'buddypress-activity-lisiting')
       }), error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
         children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Error loading activities:', 'buddypress-activity-lisiting'), " ", error]
@@ -121,37 +119,20 @@ function Edit({
           const activityTime = timeAgo(activity.date);
           const activityTitle = stripHTML(activity.title);
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
-            style: {
-              marginBottom: '20px',
-              listStyle: 'none'
-            },
+            className: "wb-activity-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              style: {
-                display: 'flex',
-                alignItems: 'center'
-              },
+              className: "wb-activity-meta",
               children: [avatarUrl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                src: avatarUrl,
-                style: {
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  marginRight: '10px'
-                }
+                className: "wb-activity-user-avatar",
+                src: avatarUrl
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                  style: {
-                    fontSize: '0.85em',
-                    color: 'black'
-                  },
+                  className: "wb-activity-timedate",
                   children: [activityTitle, "\xA0\xA0", activityTime]
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              style: {
-                marginTop: '10px',
-                color: 'black'
-              },
+              className: "wb-activity-content",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
                 children: content
               })
