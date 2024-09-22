@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/buddypress-activity-listing",
+	"name": "wbcom-blocks/buddypress-activity-listing",
 	"version": "0.1.0",
 	"title": "Buddypress Activity Listing",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"category": "wbcom-designs",
+	"icon": "buddicons-activity",
+	"description": "Buddypress Activity Listing Block.",
 	"example": {},
 	"supports": {
 		"html": false
@@ -16,10 +16,31 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
 	"attributes": {
 		"numberOfItems": {
 			"type": "number",
 			"default": 5
+		},
+		"activityType": {
+			"type": "string",
+			"default": "all"
+		},
+		"layout": {
+			"type": "string",
+			"default": "list"
+		},
+		"showDate": {
+			"type": "boolean",
+			"default": true
+		},
+		"avatarSize": {
+			"type": "number",
+			"default": 45
+		},
+		"hideHeading": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }
